@@ -21,6 +21,8 @@ more easily.
 ## Example use of the API
 User will be able to find / locate the available parking spaces in galway city. 
 
+Note: This readme file will be updated as we progress with our project.
+
 ## References
 
 
