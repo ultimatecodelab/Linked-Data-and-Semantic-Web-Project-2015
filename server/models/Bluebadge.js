@@ -36,3 +36,7 @@ var BluebadgeSchema = new mongoose.Schema({
   northig: {
     type: String
   }
+  });
+
+// Export the model schema when one requires it.
+module.exports = BluebadgeSchema;
