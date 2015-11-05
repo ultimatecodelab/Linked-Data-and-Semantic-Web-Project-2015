@@ -27,6 +27,17 @@ mongoose.connect('mongodb://localhost/galwaycityparking');
 
 mongoose.connection.once('open', function() {
 
+// Load the models from the model -> index file ...dependency inject them into the controllers...allowing them to have access to all models
+  app.models = require('./models/index');
+ 
+  // Loading the routes.
+  var routes = require('./routes');
+    
+    //iterating over all the routes
+  _.each(routes, function(controller, route) {
+    app.use(route, controller(app, route));
+  });
+  
 
 
   console.log('Listening on port 3000...');
