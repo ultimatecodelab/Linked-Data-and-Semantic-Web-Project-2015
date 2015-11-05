@@ -4,7 +4,6 @@
 
 module.exports = {
   parking: require('./parking.js'),
-  movie: require('./Movie.js'),
   meters: require('./Meters.js'),
   bluebadge: require('./Bluebadge.js')
 };
