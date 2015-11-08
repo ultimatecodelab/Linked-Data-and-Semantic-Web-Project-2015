@@ -1,0 +1,56 @@
+
+  <h1>Welcome to Galway Car Parking</h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>ParkingID</th>
+      <th>Name</th>
+      <th>No.Spaces</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Types</th>
+      <th> &nbsp;</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr>
+
+      <td> <input class="form-control" ng-model="id"> </td>
+      <td> <input class="form-control" ng-model="name"> </td>
+      <td> <input class="form-control" ng-model="no_spaces"> </td>
+      <td> <input class="form-control" ng-model="lat"> </td>
+      <td> <input class="form-control" ng-model="long"> </td>
+      <td> <input class="form-control" ng-model="eastitm"> </td>
+      <td> <input class="form-control" ng-model="northitm"> </td>
+      <td> <input class="form-control" ng-model="eastig"> </td>
+      <td> <input class="form-control" ng-model="northig"> </td>
+      <td> <input class="form-control" ng-model="types"> </td>
+
+      <td><button class="btn btn-primary" ng-click="addContact()">Add Contact</button></td>
+      <td> <button class ="btn info" ng-click="update()"> Update</button>&nbsp; &nbsp;
+        <button class="btn info" ng-click="deselect()">Clear</button>
+      </td>
+    </tr>
+    <!--tr ng-repeat="spots in parking"-->
+
+
+    <tr ng-repeat="spots in parking">
+      <td>{{spots.id}}</td>
+      <td>{{spots.name}}</td>
+      <td>{{spots.no_spaces }}</td>
+      <td>{{spots.lat}}</td>
+      <td>{{spots.long}}</td>
+      <td>{{spots.eastitm }}</td>
+      <td>{{spots.northitm}}</td>
+      <td>{{spots.eastig}}</td>
+      <td>{{spots.northig}}</td>
+      <td>{{spots.types}}</td>
+
+      <td> <button class ="btn btn-danger" ng-click="remove(spots._id)"> Remove</button></td>
+      <td> <button class ="btn btn-warning" ng-click="edit()"> Edit</button></td>
+    </tr>
+    </tbody>
+
+  </table>

@@ -1,0 +1,32 @@
+
+<p>Welcom to Meter Parking.</p>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <!--th>ID</th-->
+    <th>ID</th>
+    <th>Machine</th>
+    <th>Color ID</th>
+    <th>Location</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+  </tr>
+  </thead>
+  <thead>
+
+  <tr ng-repeat="spots in meters">
+    <!--Printing the parking spots-->
+    <td>{{spots.id}}</td>
+    <td>{{spots.machineid}}</td>
+    <td>{{spots.location}}</td>
+    <td>{{spots.lat}}</td>
+    <td>{{spots.long}}</td>
+
+
+    <td><buttton class="btn btn-danger" ng-click="">Remove</buttton></td>
+    <td><buttton class="btn btn-warning" ng-click="">Edit</buttton></td>
+  </tr>
+  </thead>
+</table>
+

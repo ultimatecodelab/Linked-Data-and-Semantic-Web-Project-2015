@@ -1,0 +1,39 @@
+<p>Welcome to Bluebadge Parking.</p>
+
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <!--th>ID</th-->
+    <th>ID</th>
+    <th>Machine</th>
+    <th>Color ID</th>
+    <th>Location</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+  </tr>
+  </thead>
+  <thead>
+
+  <tr ng-repeat="spots in bluebadge">
+    <!--Printing the parking spots-->
+    <td>{{spots.id}}</td>
+    <td>{{spots.location}}</td>
+    <td>{{spots.no_spaces}}</td>
+    <td>{{spots.description }}</td>
+    <td>{{spots.street }}</td>
+    <td>{{spots.lat }}</td>
+    <td>{{spots.long }}</td>
+    <td>{{spots.eastitm }}</td>
+    <td>{{spots.northitm }}</td>
+    <td>{{spots.eastig }}</td>
+    <td>{{spots.northig }}</td>
+
+
+    <td><buttton class="btn btn-danger" ng-click="">Remove</buttton></td>
+    <td><buttton class="btn btn-warning" ng-click="">Edit</buttton></td>
+  </tr>
+  </thead>
+</table>
+
+
