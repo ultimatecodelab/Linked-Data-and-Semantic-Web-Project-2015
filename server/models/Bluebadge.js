@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 
 // Create the Parking Schema.
 var BluebadgeSchema = new mongoose.Schema({
-  id: {
+  badgeid: {
     type: String
   },
   location: {
@@ -18,10 +18,10 @@ var BluebadgeSchema = new mongoose.Schema({
   street: {
       type: String
   },
-  lat: {
+  latitude: {
     type: String
   },
-  long: {
+  longitude: {
     type: String
   },
   eastitm: {

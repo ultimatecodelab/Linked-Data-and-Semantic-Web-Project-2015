@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 
 // Create the Parking Schema.
 var MeterSchema = new mongoose.Schema({
-  id: {
+  meterid: {
     type: String
   },
   machineid: {
@@ -12,10 +12,10 @@ var MeterSchema = new mongoose.Schema({
   location: {
     type: String
   },
-  lat: {
+  latitude: {
     type: String
   },
-  long: {
+  longitude: {
     type: String
   }
 });

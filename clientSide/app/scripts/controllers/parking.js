@@ -24,8 +24,8 @@ angular.module('clientSideApp')
     refresh();
 
     $scope.addContact = function(){
-      $http.post('http://localhost:3000/parking',{'id': $scope.id,'name': $scope.name,'no_spaces': $scope.no_spaces,'lat': $scope.lat,
-        'long': $scope.long,'eastitm': $scope.eastitm,'northitm': $scope.northitm,'eastig': $scope.eastig,'northig': $scope.northig,'types': $scope.types}).success(function(response){
+      $http.post('http://localhost:3000/parking',{'parkingid': $scope.parkingid,'name': $scope.name,'no_spaces': $scope.no_spaces,'latitude': $scope.latitude,
+        'longitude': $scope.longitude,'eastitm': $scope.eastitm,'northitm': $scope.northitm,'eastig': $scope.eastig,'northig': $scope.northig,'types': $scope.types}).success(function(response){
         //$scope.parking = response.users;
 
       });//post
