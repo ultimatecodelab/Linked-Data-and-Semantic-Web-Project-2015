@@ -3,13 +3,16 @@
   <table class="table">
     <thead>
     <tr>
-      <th>ParkingID</th>
+      <th>ID</th>
       <th>Name</th>
+	  <th>Types</th>
       <th>No.Spaces</th>
       <th>Latitude</th>
       <th>Longitude</th>
-      <th>Types</th>
-      <th> &nbsp;</th>
+	  <th>EastITM</th>
+      <th>NorthITM</th>
+      <th>EastIG</th>
+	  <th>NorthIG </th>
 
     </tr>
     </thead>
@@ -17,16 +20,20 @@
 
     <tr>
 
-      <td> <input class="form-control" ng-model="parkingid"> </td>
-      <td> <input class="form-control" ng-model="name"> </td>
-      <td> <input class="form-control" ng-model="no_spaces"> </td>
-      <td> <input class="form-control" ng-model="latitude"> </td>
-      <td> <input class="form-control" ng-model="longitude"> </td>
-      <td> <input class="form-control" ng-model="eastitm"> </td>
-      <td> <input class="form-control" ng-model="northitm"> </td>
-      <td> <input class="form-control" ng-model="eastig"> </td>
-      <td> <input class="form-control" ng-model="northig"> </td>
-      <td> <input class="form-control" ng-model="types"> </td>
+     
+	  
+	   <td> <input class="form-control" ng-model="spots.parkingid"> </td>
+      <td> <input class="form-control" ng-model="spots.name"> </td>
+	  <td> <input class="form-control" ng-model="spots.type"> </td>
+      <td> <input class="form-control" ng-model="spots.no_spaces"> </td>
+      <td> <input class="form-control" ng-model="spots.latitude"> </td>
+      <td> <input class="form-control" ng-model="spots.longitude"> </td>
+      <td> <input class="form-control" ng-model="spots.eastitm"> </td>
+      <td> <input class="form-control" ng-model="spots.northitm"> </td>
+      <td> <input class="form-control" ng-model="spots.eastig"> </td>
+      <td> <input class="form-control" ng-model="spots.northig"> </td>
+
+
 
       <td><button class="btn btn-primary" ng-click="addContact()">Add Contact</button></td>
       <td> <button class ="btn info" ng-click="update()"> Update</button>&nbsp; &nbsp;
@@ -39,6 +46,7 @@
     <tr ng-repeat="spots in parking">
       <td>{{spots.parkingid}}</td>
       <td>{{spots.name}}</td>
+	   <td>{{spots.type}}</td>
       <td>{{spots.no_spaces }}</td>
       <td>{{spots.latitude}}</td>
       <td>{{spots.longitude}}</td>
@@ -46,10 +54,10 @@
       <td>{{spots.northitm}}</td>
       <td>{{spots.eastig}}</td>
       <td>{{spots.northig}}</td>
-      <td>{{spots.types}}</td>
+     
 
       <td> <button class ="btn btn-danger" ng-click="remove(spots._id)"> Remove</button></td>
-      <td> <button class ="btn btn-warning" ng-click="edit()"> Edit</button></td>
+      <td> <button class ="btn btn-warning" ng-click="edit(spots._id)"> Edit</button></td>
     </tr>
     </tbody>
 

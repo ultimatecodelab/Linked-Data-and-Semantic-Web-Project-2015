@@ -12,10 +12,10 @@ var MeterSchema = new mongoose.Schema({
   location: {
     type: String
   },
-  latitude: {
+  lat: {
     type: String
   },
-  longitude: {
+  long: {
     type: String
   }
 });

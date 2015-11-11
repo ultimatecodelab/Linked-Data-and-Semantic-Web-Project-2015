@@ -9,6 +9,9 @@ var ParkingSchema = new mongoose.Schema({
   name: {
     type: String
   },
+   type: {
+    type: String
+  },
   no_spaces: {
     type: String
   },
@@ -29,10 +32,8 @@ var ParkingSchema = new mongoose.Schema({
   },
   northig: {
     type: String
-  },
-  types: {
-    type: String
   }
+ 
 });
 
 // Export the model schema when one requires it.

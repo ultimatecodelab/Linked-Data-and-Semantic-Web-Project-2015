@@ -5,13 +5,40 @@
   <thead>
   <tr>
     <!--th>ID</th-->
-    <th>ID</th>
-    <th>Machine</th>
-    <th>Color ID</th>
+    <th>Badge ID</th>
     <th>Location</th>
+    <th>No. Spaces</th>
+    <th>Description</th>
+    <th>Street</th>
     <th>Latitude</th>
-    <th>Longitude</th>
+	 <th>Longitude</th>
+	  <th>Eastitm</th>
+	   <th>NorthItm</th>
+	    <th>Eastig</th>
+		 <th>NorthIG</th>
   </tr>
+  <tr>
+    
+	   <td> <input class="form-control" ng-model="spots.badgeid"> </td>
+	   <td> <input class="form-control" ng-model="spots.location"> </td>
+      <td> <input class="form-control" ng-model="spots.no_spaces"> </td>
+      <td> <input class="form-control" ng-model="spots.description"> </td>
+      <td> <input class="form-control" ng-model="spots.street"> </td>
+	  <td> <input class="form-control" ng-model="spots.latitude"> </td>
+	   <td> <input class="form-control" ng-model="spots.longitude"> </td>
+      <td> <input class="form-control" ng-model="spots.eastitm"> </td>
+      <td> <input class="form-control" ng-model="spots.northitm"> </td>
+      <td> <input class="form-control" ng-model="spots.eastig"> </td>
+	  <td> <input class="form-control" ng-model="spots.northig"> </td>
+	  
+	  
+      
+
+      <td><button class="btn btn-primary" ng-click="addMeters()">Add Contact</button></td>
+      <td> <button class ="btn info" ng-click="update()"> Update</button>&nbsp; &nbsp;
+        <button class="btn info" ng-click="deselect()">Clear</button>
+      </td>
+    </tr>
   </thead>
   <thead>
 
@@ -29,9 +56,8 @@
     <td>{{spots.eastig }}</td>
     <td>{{spots.northig }}</td>
 
-
-    <td><buttton class="btn btn-danger" ng-click="">Remove</buttton></td>
-    <td><buttton class="btn btn-warning" ng-click="">Edit</buttton></td>
+	<td><buttton class="btn btn-danger" ng-click="remove(spots._id)">Remove</buttton></td>
+    <td><buttton class="btn btn-warning" ng-click="edit(spots._id)">Edit</buttton></td>
   </tr>
   </thead>
 </table>
