@@ -5,6 +5,11 @@
 * Download MongoDb https://www.mongodb.org/downloads
 * Download grunt cli http://gruntjs.com/getting-started (need for running the client, angularjs)
 * Once you have completed the above prerequisites copy the data folder (located on the project directory) and paste it to C:\ .   This must be done before running the server because (MongoDb) by default checks C:\data for database file...Please make sure this step is carried out properly otherwise the data will not be shown/loaded...
+* Now go to MongoDB\Server\3.0\bin and run execute mongodb instance. 
+* To lunch the api (Linked-Data-and-Semantic-Web-Project-2015\server) go the server folder located on the project root directory. Open command promt and cd into the server directory and enter npm install to install the dependencies.
+* Once the dependencies has been installed run the index.js (node index.js). Your server should now run at port 3000.
+* Once your server is running, go to the folder called "clientSide" which is located in the project root directory.
+* Lunch command prompt and cd into Linked-Data-and-Semantic-Web-Project-2015\clientSide and enter npm install.Once all the dependencies has been installed for client side, type grunt serve and web browser will open where you can perform CRUD operation on the api from front-end (angularjs)
 
 
 
