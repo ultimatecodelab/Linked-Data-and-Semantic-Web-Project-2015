@@ -29,6 +29,7 @@ angular.module('clientSideApp')
       $http.post('http://localhost:3000/meters',{'meterid': $scope.spots.meterid,'machineid': $scope.spots.machineid,'location': $scope.spots.location,'lat': $scope.spots.lat,'long': $scope.spots.long,}).success(function(response){
         //$scope.parking = response.users;
 		 refresh();
+		 window.alert("Record inserted");
       });
     };//addContact
 	
@@ -38,6 +39,7 @@ angular.module('clientSideApp')
         //refresh();
 		console.log("Deleted");
 		 refresh();
+		 window.alert("Record removed");
       });
     };
 	//===========================Edit============================
@@ -57,12 +59,17 @@ angular.module('clientSideApp')
 	console.log("Here");
 	$http.put('http://localhost:3000/meters/'+ $scope.spots._id ,$scope.spots).success(function(response){
     refresh();
+	window.alert("Record Updated");
 	  
 	  })
 
 	};
 	
 	//=======================================================
+	$scope.deselect = function(){
+        $scope.spots = '';
+		refresh();
+    }
 
  });//controller
   

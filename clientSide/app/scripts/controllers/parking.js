@@ -12,8 +12,8 @@ angular.module('clientSideApp')
 
     var refresh = function() {
       
-	  var meter_data = $http.get('http://localhost:3000/parking');
-      meter_data.then(function (result) {
+		var meter_data = $http.get('http://localhost:3000/parking');
+		meter_data.then(function (result) {
         $scope.parking = result.data;
       
       });
@@ -30,6 +30,7 @@ angular.module('clientSideApp')
       $http.post('http://localhost:3000/parking',{'parkingid': $scope.spots.parkingid,'name': $scope.spots.name,'no_spaces': $scope.spots.no_spaces,'latitude': $scope.spots.latitude,
         'longitude': $scope.spots.longitude,'eastitm': $scope.spots.eastitm,'northitm': $scope.spots.northitm,'eastig': $scope.spots.eastig,'northig': $scope.spots.northig,'types': $scope.spots.types}).success(function(response){
 		refresh();
+		window.alert("Record Inserted");
       });
     };//addContact
 	
@@ -38,6 +39,7 @@ angular.module('clientSideApp')
     $scope.remove = function(id) {
       $http.delete('http://localhost:3000/parking/'+id).success(function () {
         refresh();
+		window.alert("Record deleted");
       });
     };
 //===========================================
@@ -55,12 +57,14 @@ angular.module('clientSideApp')
 	console.log("Here");
 		$http.put('http://localhost:3000/parking/'+ $scope.spots._id ,$scope.spots).success(function(response){
 		refresh();
+		window.alert("Record Updated");
 	  });
 
 	};
 	//=======================================================================
 	 $scope.deselect = function(){
-        //$scope.parking= "";
+         $scope.spots = '';
+		  refresh();
     }
 
   });

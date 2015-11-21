@@ -24,13 +24,19 @@ angular.module('clientSideApp')
     }
 
 		//=======================Add================================
-  $scope.addBluebadge = function(){
-  console.log("posted");
+	$scope.addBluebadge = function(){
+	console.log("posted");
       $http.post('http://localhost:3000/bluebadge',{'badgeid': $scope.spots.badgeid,'location': $scope.spots.location,'no_spaces': $scope.spots.no_spaces,
 	  'description': $scope.spots.description,'street': $scope.spots.street,'latitude': $scope.spots.latitude,
 	  'longitude': $scope.spots.longitude,'eastitm': $scope.spots.eastitm,'northitm': $scope.spots.northitm,'eastig': $scope.spots.eastig,
 	  'northig': $scope.spots.northig}).success(function(response){
        refresh();
+	   if($scope.spots != " ") {
+		window.alert("Record Added");
+	   }
+	   else{
+	   window.alert(" Cannot add the empty record");
+	   }
 	
       });
     };//addContact
@@ -41,6 +47,7 @@ angular.module('clientSideApp')
         //refresh();
 		console.log("Deleted");
 		refresh();
+		window.alert("Record Deleted");
       });
     };
 	//===========================Edit============================
@@ -60,13 +67,17 @@ angular.module('clientSideApp')
 	console.log("Here");
 	$http.put('http://localhost:3000/bluebadge/'+ $scope.spots._id ,$scope.spots).success(function(response){
     refresh();
+	window.alert("Record Updated");
 	  
 	  })
 
 	};
 	
 	//=======================================================
-	
+	$scope.deselect = function(){
+        $scope.spots = '';
+		refresh();
+    }
 	
 	
   });
