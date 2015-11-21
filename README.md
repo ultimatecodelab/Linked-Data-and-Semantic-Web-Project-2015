@@ -1,24 +1,30 @@
 
-# Galway City Car Parking API - Arjun Kharel And James Ngondo
+# Software Developers - Arjun Kharel And James Ngondo (GMIT)
+
+![Alt text](https://github.com/ultimatecodelab/Linked-Data-and-Semantic-Web-Project-2015/blob/master/images/banner.PNG "Optional title")
+
 1. Installation (prerequisites)
 2. Project description
 3. How to query the api 
-4. Angularjs Frontend
-5. Conclusion
-6. References 
+4. Using Postman
+5. Angularjs Frontend
+6. Use of the API
+7. Conclusion
+8. References 
 
-## Installation (prerequisites)
+## 1: Installation (prerequisites)
 * Download nodejs https://nodejs.org/en/download/
 * Download MongoDb https://www.mongodb.org/downloads
 * Download grunt cli http://gruntjs.com/getting-started (need for running the client, angularjs)
-* Once you have completed the above prerequisites copy the data folder (located on the project directory) and paste it to C:\ .   This must be done before running the server because (MongoDb) by default checks C:\data for database file...Please make sure this step is carried out properly otherwise the data will not be shown/loaded...
-* Now go to MongoDB\Server\3.0\bin and run execute mongodb instance. 
+* Once you have completed the above prerequisites copy the **data folder** (located on the project directory) and paste it to C:\ .   This must be done before running the server because (MongoDb) by default checks C:\data for database file...Please make sure this step is carried out properly otherwise the data will not be shown/loaded...
+* Now go to MongoDB\Server\3.0\bin and run execute **mongod** instance. 
 * To lunch the api (Linked-Data-and-Semantic-Web-Project-2015\server) go the server folder located on the project root directory. Open command promt and cd into the server directory and enter npm install to install the dependencies.
-* Once the dependencies has been installed run the index.js (node index.js). Your server should now run at port 3000.
-* Once your server is running, go to the folder called "clientSide" which is located in the project root directory.
-* Lunch command prompt and cd into Linked-Data-and-Semantic-Web-Project-2015\clientSide and enter npm install.Once all the dependencies has been installed for client side, type grunt serve and web browser will open where you can perform CRUD operation on the api from front-end (angularjs)
+* Once the dependencies has been installed run the **index.js** (node index.js). Your server should now run at port **3000**.
+* Once your server is running, go to the folder called **clientSide** which is located in the project root directory.
+* Lunch command prompt and cd into Linked-Data-and-Semantic-Web-Project-2015\clientSide and enter **npm install** to install all the dependencies.
+Once all the dependencies has been installed for the client side, type **grunt serve** and web browser will open where you can perform CRUD operation on the api from front-end (angularjs)
 
-## Project description
+## 2: Project description
 THREE different datasets have been chosen to create an API that allows user to find parking places in Galway city.
 
 **The  following datasets have/will be used to crean an API:** 
@@ -33,10 +39,14 @@ More datasets will be added if there need be.
 
 All the above mentioned datasets are available from data.gov.ie
 
-## How to Query the API from Url's
+## 3: How to Query the API from Url's
 * Angularjs will be used for front-end. User will be able to query the API either using the url's,Navigation Links 
 * User will bea able to delete data form the API
 **The project is fully functional, and REST verbs are fully implemented and tested in postman(chrome extension).**
+
+## 4: Using Postman for Get/Post/Put/Delete queries. 
+![Alt text](https://github.com/ultimatecodelab/Linked-Data-and-Semantic-Web-Project-2015/blob/master/images/postmanget.PNG "Optional title")
+
 
 * Navigate to: http://127.0.0.1:3000/parking (Dataset 1)
 ```javascript
@@ -83,11 +93,13 @@ type":"Pay/Surface Carpark","no_spaces":"88","latitude":"53.273","longitude":"-9
  http://127.0.0.1:3000/bluebadge/56428cef58391feaec5283e9
 
 
-## Angularjs Frontend - Consuming api from angularjs (Frontend)
+## 5: Angularjs Frontend - Consuming api from angularjs (Frontend)
+![Alt text](https://github.com/ultimatecodelab/Linked-Data-and-Semantic-Web-Project-2015/blob/master/images/mainpagebanner.PNG "Optional title")
+
 http://localhost:9000/#/parking 
 
 
-![Alt text](https://github.com/ultimatecodelab/Linked-Data-and-Semantic-Web-Project-2015/blob/master/images/consumingparking.PNG "Optional title")
+![Alt text](https://github.com/ultimatecodelab/Linked-Data-and-Semantic-Web-Project-2015/blob/master/images/searchandfiltering.PNG "Optional title")
 
 
 http://localhost:9000/#/meters
@@ -97,19 +109,23 @@ http://localhost:9000/#/meters
 http://localhost:9000/#/bluebadge
 ![Alt text](https://github.com/ultimatecodelab/Linked-Data-and-Semantic-Web-Project-2015/blob/master/images/consumingbluebadge.PNG "Optional title")
 
-## Example use of the API
+Getting json raw data from client side (angularjs)
+![Alt text](https://github.com/ultimatecodelab/Linked-Data-and-Semantic-Web-Project-2015/blob/master/images/rawjsonfileslinks.PNG "Optional title")
+
+## 6: Example use of the API
 User will be able to find / locate the available parking spaces in galway city. 
 
-##Conclusion
+## 7: Conclusion
 Developed a fully working API and also  a seperate webapp in angularjs for consuming the API.
-The best part of this project is SERVER side code is completely isolated from the client side( angularjs) - web app. What this 
-means is an API can be hosted in one server and webapp(angularjs) in different one which talks(consumes ) the api.
-It also makes it easier for maintaning and future development of an API. 
-API was developed by using restify module. This  has been widely used in industries for long time. It is very stable was specifically 
+The best part of this project is SERVER side code which is completely isolated from the client side( angularjs) - web app. This 
+means that the API can be hosted in one server and clientside(angularjs) in different server and they can communicate back and forth.
+It also makes it easier for maintaning and future development of an API because changes made to server side code will the break
+down the client side functionality. 
+This is a REST-full API developed using **Restify** and this technology is widely used in industries. It is very stable was specifically 
 built for REST web services. 
 Good programming techniques used, MVC approach was followed. 
 
-## References
+## 8: References
 Code was not directly copied and pasted, code has been modified to fit our purpose. Some of the resources used in this project
 are from the following sources..
 
