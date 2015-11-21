@@ -9,22 +9,28 @@
  */
 angular.module('clientSideApp')
   .controller('BluebadgeCtrl', function ($scope,$http) {
-  
-    var meter_data = $http.get('http://localhost:3000/bluebadge');
-    meter_data.then(function (result){
+   var refresh = function() {
+		var meter_data = $http.get('http://localhost:3000/bluebadge');
+		meter_data.then(function (result){
 
-      $scope.bluebadge = result.data;
-    });
-	
+			$scope.bluebadge = result.data;
+		});
+	};
+	refresh();
+	//=======================Sort==================================
+	 $scope.sort = function(keyname){
+        $scope.sortKey = keyname;   //set the sortKey to the param passed
+        $scope.reverse = !$scope.reverse; //if true make it false and vice versa
+    }
 
 		//=======================Add================================
-  $scope.addMeters = function(){
+  $scope.addBluebadge = function(){
   console.log("posted");
       $http.post('http://localhost:3000/bluebadge',{'badgeid': $scope.spots.badgeid,'location': $scope.spots.location,'no_spaces': $scope.spots.no_spaces,
 	  'description': $scope.spots.description,'street': $scope.spots.street,'latitude': $scope.spots.latitude,
 	  'longitude': $scope.spots.longitude,'eastitm': $scope.spots.eastitm,'northitm': $scope.spots.northitm,'eastig': $scope.spots.eastig,
 	  'northig': $scope.spots.northig}).success(function(response){
-        //$scope.parking = response.users;
+       refresh();
 	
       });
     };//addContact
@@ -34,6 +40,7 @@ angular.module('clientSideApp')
       $http.delete('http://localhost:3000/bluebadge/'+id).success(function () {
         //refresh();
 		console.log("Deleted");
+		refresh();
       });
     };
 	//===========================Edit============================

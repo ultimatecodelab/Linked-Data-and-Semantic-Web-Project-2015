@@ -1,19 +1,43 @@
 
   <h1>Welcome to Galway Car Parking</h1>
-  <table class="table">
+	 <div>
+	<label>Search</label>
+		<input type="text" ng-model="search" class="form-control" placeholder="Search"></input>
+ </div>
+ <table class="table">
     <thead>
     <tr>
-      <th>ID</th>
-      <th>Name</th>
-	  <th>Types</th>
-      <th>No.Spaces</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-	  <th>EastITM</th>
-      <th>NorthITM</th>
-      <th>EastIG</th>
-	  <th>NorthIG </th>
-
+      <th ng-click="sort('parkingid')">ID
+		<span class="glyphicon sort-icon" ng-show="sortKey=='parkingid'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	  </th>
+      <th ng-click="sort('name')">Name
+		<span class="glyphicon sort-icon" ng-show="sortKey=='name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	  </th>
+	  <th ng-click="sort('type')">Types
+		<span class="glyphicon sort-icon" ng-show="sortKey=='type'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	  </th>
+      <th ng-click="sort('no_spaces')">No.Spaces
+		<span class="glyphicon sort-icon" ng-show="sortKey=='no_spaces'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	  </th>
+      <th ng-click="sort('latitude')">Latitude
+		<span class="glyphicon sort-icon" ng-show="sortKey=='latitude'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	  </th>
+      <th ng-click="sort('longitude')">Longitude
+		<span class="glyphicon sort-icon" ng-show="sortKey=='longitude'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	  </th>
+	  <th ng-click="sort('eastitm')">EastITM
+		<span class="glyphicon sort-icon" ng-show="sortKey=='eastitm'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	  </th>
+      <th ng-click="sort('northitm')">NorthITM
+		<span class="glyphicon sort-icon" ng-show="sortKey=='northitm'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	  </th>
+      <th ng-click="sort('eastig')">EastIG
+		<span class="glyphicon sort-icon" ng-show="sortKey=='eastig'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	  </th>
+	  <th ng-click="sort('northig')">NorthIG 
+		<span class="glyphicon sort-icon" ng-show="sortKey=='northig'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	  </th>
+     
     </tr>
     </thead>
     <tbody>
@@ -35,15 +59,15 @@
 
 
 
-      <td><button class="btn btn-primary" ng-click="addContact()">Add</button></td>
+      <td><button class="btn btn-primary" ng-click="addParking()">Add New</button></td>
       <td> <button class ="btn info" ng-click="update()"> Update</button>&nbsp; &nbsp;
-        <button class="btn info" ng-click="deselect()">Clear</button>
+      <button class="btn info" ng-click="deselect()">Clear</button>
       </td>
     </tr>
     <!--tr ng-repeat="spots in parking"-->
 
 
-    <tr ng-repeat="spots in parking">
+    <tr ng-repeat="spots in parking|orderBy:sortKey:reverse|filter:search">
       <td>{{spots.parkingid}}</td>
       <td>{{spots.name}}</td>
 	   <td>{{spots.type}}</td>

@@ -9,16 +9,26 @@
  */
 angular.module('clientSideApp')
   .controller('MetersCtrl', function ($scope, $http) {
-   var meter_data = $http.get('http://localhost:3000/meters');
-    meter_data.then(function (result){
-      $scope.meters = result.data;
-    });
+   
+    var refresh = function() {
+	   var meter_data = $http.get('http://localhost:3000/meters');
+		meter_data.then(function (result){
+		  $scope.meters = result.data;		 
+		});
+	
+	};	
+ refresh();
+//=======================Sort==================================
+	 $scope.sort = function(keyname){
+        $scope.sortKey = keyname;   //set the sortKey to the param passed
+        $scope.reverse = !$scope.reverse; //if true make it false and vice versa
+    }
 	//=======================Add================================
   $scope.addMeters = function(){
   console.log("posted");
       $http.post('http://localhost:3000/meters',{'meterid': $scope.spots.meterid,'machineid': $scope.spots.machineid,'location': $scope.spots.location,'lat': $scope.spots.lat,'long': $scope.spots.long,}).success(function(response){
         //$scope.parking = response.users;
-	
+		 refresh();
       });
     };//addContact
 	
@@ -27,6 +37,7 @@ angular.module('clientSideApp')
       $http.delete('http://localhost:3000/meters/'+id).success(function () {
         //refresh();
 		console.log("Deleted");
+		 refresh();
       });
     };
 	//===========================Edit============================

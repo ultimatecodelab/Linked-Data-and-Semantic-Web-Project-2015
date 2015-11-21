@@ -1,21 +1,48 @@
-<p>Welcome to Bluebadge Parking.</p>
+<h1>Welcome to Bluebadge Parking.</h1>
+<div>
+	<label>Search</label>
+		<input type="text" ng-model="search" class="form-control" placeholder="Search"></input>
+ </div>
 
 
 <table class="table table-striped">
   <thead>
   <tr>
     <!--th>ID</th-->
-    <th>Badge ID</th>
-    <th>Location</th>
-    <th>No. Spaces</th>
-    <th>Description</th>
-    <th>Street</th>
-    <th>Latitude</th>
-	 <th>Longitude</th>
-	  <th>Eastitm</th>
-	   <th>NorthItm</th>
-	    <th>Eastig</th>
-		 <th>NorthIG</th>
+    <th ng-click="sort('badgeid')">Badge ID
+		<span class="glyphicon sort-icon" ng-show="sortKey=='badgeid'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	</th>
+    <th ng-click="sort('location')">Location
+		<span class="glyphicon sort-icon" ng-show="sortKey=='location'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	</th>
+    <th ng-click="sort('no_spaces')">No. Spaces
+		<span class="glyphicon sort-icon" ng-show="sortKey=='no_spaces'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	</th>
+    <th ng-click="sort('description')">Description
+		<span class="glyphicon sort-icon" ng-show="sortKey=='description'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	</th>
+    <th ng-click="sort('street')">Street
+		<span class="glyphicon sort-icon" ng-show="sortKey=='street'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	</th>
+    <th ng-click="sort('latitude')">Latitude
+		<span class="glyphicon sort-icon" ng-show="sortKey=='latitude'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	</th>
+	 <th ng-click="sort('longitude')">Longitude
+		<span class="glyphicon sort-icon" ng-show="sortKey=='longitude'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	 </th>
+	  <th ng-click="sort('eastitm')">Eastitm
+		<span class="glyphicon sort-icon" ng-show="sortKey=='eastitm'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	 </th>
+	 <th ng-click="sort('northitm')">NorthItm
+		<span class="glyphicon sort-icon" ng-show="sortKey=='northitm'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	 </th>
+	 <th ng-click="sort('eastig')">Eastig
+		<span class="glyphicon sort-icon" ng-show="sortKey=='eastig'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	 </th>
+	 <th ng-click="sort('northig')">NorthIG
+		<span class="glyphicon sort-icon" ng-show="sortKey=='northig'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	 </th>
+   
   </tr>
   <tr>
     
@@ -31,10 +58,7 @@
       <td> <input class="form-control" ng-model="spots.eastig"> </td>
 	  <td> <input class="form-control" ng-model="spots.northig"> </td>
 	  
-	  
-      
-
-      <td><button class="btn btn-primary" ng-click="addMeters()">Add</button></td>
+      <td><button class="btn btn-primary" ng-click="addBluebadge()">Add New</button></td>
       <td> <button class ="btn info" ng-click="update()"> Update</button>&nbsp; &nbsp;
         <button class="btn info" ng-click="deselect()">Clear</button>
       </td>
@@ -42,7 +66,7 @@
   </thead>
   <thead>
 
-  <tr ng-repeat="spots in bluebadge">
+  <tr ng-repeat="spots in bluebadge|orderBy:sortKey:reverse|filter:search">
     <!--Printing the parking spots-->
     <td>{{spots.badgeid}}</td>
     <td>{{spots.location}}</td>
@@ -56,8 +80,8 @@
     <td>{{spots.eastig }}</td>
     <td>{{spots.northig }}</td>
 
-	<td><buttton class="btn btn-danger" ng-click="remove(spots._id)">Remove</buttton></td>
-    <td><buttton class="btn btn-warning" ng-click="edit(spots._id)">Edit</buttton></td>
+	 <td> <button class ="btn btn-danger" ng-click="remove(spots._id)"> Remove</button></td>
+     <td> <button class ="btn btn-warning" ng-click="edit(spots._id)"> Edit</button></td>
   </tr>
   </thead>
 </table>

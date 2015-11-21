@@ -1,15 +1,28 @@
 
-<p>Welcom to Meter Parking.</p>
-
+<h1>Welcom to Meter Parking.</h1>
+ <div>
+	<label>Search</label>
+		<input type="text" ng-model="search" class="form-control" placeholder="Search"></input>
+ </div>
 <table class="table table-striped">
   <thead>
   <tr>
-    <!--th>ID</th-->
-    <th>ID</th>
-    <th>Machine-ID</th>
-    <th>Location</th>
-    <th>Latitude</th>
-    <th>Longitude</th>
+    <th ng-click="sort('meterid')">ID
+		<span class="glyphicon sort-icon" ng-show="sortKey=='meterid'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	</th>
+    <th ng-click="sort('machineid')">Machine-ID
+		<span class="glyphicon sort-icon" ng-show="sortKey=='machineid'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	</th>
+    <th ng-click="sort('location')">Location
+		<span class="glyphicon sort-icon" ng-show="sortKey=='location'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	</th>
+    <th ng-click="sort('lat')">Latitude
+		<span class="glyphicon sort-icon" ng-show="sortKey=='lat'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	</th>
+    <th ng-click="sort('long')">Longitude
+		<span class="glyphicon sort-icon" ng-show="sortKey=='long'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+	</th>
+   
   </tr>
    <tr>
 
@@ -19,16 +32,15 @@
       <td> <input class="form-control" ng-model="spots.lat"> </td>
       <td> <input class="form-control" ng-model="spots.long"> </td>
       
-
-      <td><button class="btn btn-primary" ng-click="addMeters()">Add</button></td>
-      <td> <button class ="btn info" ng-click="update()"> Update</button>&nbsp; &nbsp;
-        <button class="btn info" ng-click="deselect()">Clear</button>
+      <td><button class="btn btn-primary" ng-click="addMeters()">Add New</button></td>
+      <td> <button class ="btn info" ng-click="update()"> Update</button>&nbsp;&nbsp;
+      <button class="btn info" ng-click="deselect()">Clear</button>
       </td>
     </tr>
   </thead>
   <thead>
 
-  <tr ng-repeat="spots in meters">
+  <tr ng-repeat="spots in meters|orderBy:sortKey:reverse|filter:search">
     <!--Printing the parking spots-->
     <td>{{spots.meterid}}</td>
     <td>{{spots.machineid}}</td>
@@ -36,10 +48,11 @@
     <td>{{spots.lat}}</td>
     <td>{{spots.long}}</td>
 
+	 <td> <button class ="btn btn-danger" ng-click="remove(spots._id)"> Remove</button></td>
+     <td> <button class ="btn btn-warning" ng-click="edit(spots._id)"> Edit</button></td>
 
-    <td><buttton class="btn btn-danger" ng-click="remove(spots._id)">Remove</buttton></td>
-    <td><buttton class="btn btn-warning" ng-click="edit(spots._id)">Edit</buttton></td>
   </tr>
   </thead>
+  
 </table>
 
