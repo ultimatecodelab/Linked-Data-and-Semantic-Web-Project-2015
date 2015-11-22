@@ -3,6 +3,8 @@
 
 ![Alt text](https://github.com/ultimatecodelab/Linked-Data-and-Semantic-Web-Project-2015/blob/master/images/banner.PNG "Optional title")
 
+**API has been hosted on heroku and links are provided bellow.**
+
 1. Installation (prerequisites)
 2. Project description
 3. How to query the api 
@@ -13,14 +15,6 @@
 8. References 
 
 ## 1: Installation (prerequisites)
-* Download nodejs https://nodejs.org/en/download/
-* Download MongoDb https://www.mongodb.org/downloads
-* Download grunt cli http://gruntjs.com/getting-started (need for running the client, angularjs)
-* Once you have completed the above prerequisites copy the **data folder** (located on the project directory) and paste it to C:\ .   This must be done before running the server because (MongoDb) by default checks C:\data for database file...Please make sure this step is carried out properly otherwise the data will not be shown/loaded...
-* Now go to MongoDB\Server\3.0\bin and run execute **mongod** instance. 
-* To lunch the api (Linked-Data-and-Semantic-Web-Project-2015\server) go the server folder located on the project root directory. Open command promt and cd into the server directory and enter npm install to install the dependencies.
-* Once the dependencies has been installed run the **index.js** (node index.js). Your server should now run at port **3000**.
-* Once your server is running, go to the folder called **clientSide** which is located in the project root directory.
 * Lunch command prompt and cd into Linked-Data-and-Semantic-Web-Project-2015\clientSide and enter **npm install** to install all the dependencies.
 Once all the dependencies has been installed for the client side, type **grunt serve** and web browser will open where you can perform CRUD operation on the api from front-end (angularjs)
 
@@ -48,7 +42,7 @@ All the above mentioned datasets are available from data.gov.ie
 ![Alt text](https://github.com/ultimatecodelab/Linked-Data-and-Semantic-Web-Project-2015/blob/master/images/postmanget.PNG "Optional title")
 
 
-* Navigate to: http://127.0.0.1:3000/parking (Dataset 1)
+* Navigate to: https://galwayparkingapitest.herokuapp.com/parking (Dataset 1)
 ```javascript
 [{"_id":"56428b5c58391feaec5283d8","parkingid":"1","name":"Market St","
 type":"Pay/Surface Carpark","no_spaces":"88","latitude":"53.273","longitude":"-9.054",
@@ -60,7 +54,7 @@ type":"Pay/Surface Carpark","no_spaces":"88","latitude":"53.273","longitude":"-9
 "eastig":"129515.546","northig":"225368.595"}
 ```
 
-* Navigate to http://127.0.0.1:3000/meters (Dataset 2)
+* Navigate to https://galwayparkingapitest.herokuapp.com/meters (Dataset 2)
 
 ```javascript
 [{"_id":"56428adb58391feaec52837e","meterid":"1","machineid":"2","location":"Brmeteridgets Tce","lat":"53.277285","long":"-9.047809"},
@@ -74,7 +68,7 @@ type":"Pay/Surface Carpark","no_spaces":"88","latitude":"53.273","longitude":"-9
 ```
 
 
-* Navigate to http://127.0.0.1:3000/bluebadge (Dataset 3)
+* Navigate tohttps://galwayparkingapitest.herokuapp.com/bluebadge (Dataset 3)
 
 ```javascript
 [{"_id":"56428cef58391feaec5283e9","badgeid":"1","location":"Opposite No. 5","no_spaces":"1",
