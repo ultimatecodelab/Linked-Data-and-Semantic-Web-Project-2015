@@ -7,9 +7,7 @@
 <table class="table table-striped">
   <thead>
   <tr>
-    <th ng-click="sort('meterid')">ID
-		<span class="glyphicon sort-icon" ng-show="sortKey=='meterid'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-	</th>
+    
     <th ng-click="sort('machineid')">Machine-ID
 		<span class="glyphicon sort-icon" ng-show="sortKey=='machineid'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
 	</th>
@@ -26,7 +24,7 @@
   </tr>
    <tr>
 
-	   <td> <input class="form-control" ng-model="spots.meterid"> </td>
+	 
 	   <td> <input class="form-control" ng-model="spots.machineid"> </td>
       <td> <input class="form-control" ng-model="spots.location"> </td>
       <td> <input class="form-control" ng-model="spots.lat"> </td>
@@ -42,7 +40,7 @@
 
   <tr ng-repeat="spots in meters|orderBy:sortKey:reverse|filter:search">
     <!--Printing the parking spots-->
-    <td>{{spots.meterid}}</td>
+   
     <td>{{spots.machineid}}</td>
     <td>{{spots.location}}</td>
     <td>{{spots.lat}}</td>

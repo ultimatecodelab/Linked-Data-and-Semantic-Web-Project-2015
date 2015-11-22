@@ -23,7 +23,9 @@ app.use(function(req, res, next) {
 
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost/galwaycityparking');
+mongoose.connect('mongodb://gcpadmin:gcp00353$@ds057204.mongolab.com:57204/galwaycityparking');
+//mongodb://<dbuser>:<dbpassword>@ds057204.mongolab.com:57204/galwaycityparking
+//mongoose.connect('mongodb://localhost/galwaycityparking');
 
 mongoose.connection.once('open', function() {
 

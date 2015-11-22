@@ -8,10 +8,10 @@
 <table class="table table-striped">
   <thead>
   <tr>
-    <!--th>ID</th-->
+    <!--th>ID</th
     <th ng-click="sort('badgeid')">Badge ID
 		<span class="glyphicon sort-icon" ng-show="sortKey=='badgeid'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-	</th>
+	</th>-->
     <th ng-click="sort('location')">Location
 		<span class="glyphicon sort-icon" ng-show="sortKey=='location'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
 	</th>
@@ -46,7 +46,7 @@
   </tr>
   <tr>
     
-	   <td> <input class="form-control" ng-model="spots.badgeid"> </td>
+	   <!-- <td> <input class="form-control" ng-model="spots.badgeid"> </td>-->
 	   <td> <input class="form-control" ng-model="spots.location"> </td>
       <td> <input class="form-control" ng-model="spots.no_spaces"> </td>
       <td> <input class="form-control" ng-model="spots.description"> </td>
@@ -68,7 +68,7 @@
 
   <tr ng-repeat="spots in bluebadge|orderBy:sortKey:reverse|filter:search">
     <!--Printing the parking spots-->
-    <td>{{spots.badgeid}}</td>
+   <!--  <td>{{spots.badgeid}}</td> -->
     <td>{{spots.location}}</td>
     <td>{{spots.no_spaces}}</td>
     <td>{{spots.description }}</td>

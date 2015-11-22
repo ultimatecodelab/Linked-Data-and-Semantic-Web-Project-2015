@@ -7,9 +7,11 @@
  <table class="table">
     <thead>
     <tr>
+	<!--Hidden
       <th ng-click="sort('parkingid')">ID
 		<span class="glyphicon sort-icon" ng-show="sortKey=='parkingid'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
 	  </th>
+	  -->
       <th ng-click="sort('name')">Name
 		<span class="glyphicon sort-icon" ng-show="sortKey=='name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
 	  </th>
@@ -46,7 +48,7 @@
 
      
 	  
-	   <td> <input class="form-control" ng-model="spots.parkingid"> </td>
+	 
       <td> <input class="form-control" ng-model="spots.name"> </td>
 	  <td> <input class="form-control" ng-model="spots.type"> </td>
       <td> <input class="form-control" ng-model="spots.no_spaces"> </td>
@@ -68,7 +70,7 @@
 
 
     <tr ng-repeat="spots in parking|orderBy:sortKey:reverse|filter:search">
-      <td>{{spots.parkingid}}</td>
+    
       <td>{{spots.name}}</td>
 	   <td>{{spots.type}}</td>
       <td>{{spots.no_spaces }}</td>

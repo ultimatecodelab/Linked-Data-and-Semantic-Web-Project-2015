@@ -10,7 +10,7 @@
 angular.module('clientSideApp')
   .controller('BluebadgeCtrl', function ($scope,$http) {
    var refresh = function() {
-		var meter_data = $http.get('http://localhost:3000/bluebadge');
+		var meter_data = $http.get('https://galwayparkingapitest.herokuapp.com/bluebadge/');
 		meter_data.then(function (result){
 
 			$scope.bluebadge = result.data;
@@ -26,7 +26,7 @@ angular.module('clientSideApp')
 		//=======================Add================================
 	$scope.addBluebadge = function(){
 	console.log("posted");
-      $http.post('http://localhost:3000/bluebadge',{'badgeid': $scope.spots.badgeid,'location': $scope.spots.location,'no_spaces': $scope.spots.no_spaces,
+      $http.post('https://galwayparkingapitest.herokuapp.com/bluebadge/',{'badgeid': $scope.spots.badgeid,'location': $scope.spots.location,'no_spaces': $scope.spots.no_spaces,
 	  'description': $scope.spots.description,'street': $scope.spots.street,'latitude': $scope.spots.latitude,
 	  'longitude': $scope.spots.longitude,'eastitm': $scope.spots.eastitm,'northitm': $scope.spots.northitm,'eastig': $scope.spots.eastig,
 	  'northig': $scope.spots.northig}).success(function(response){
@@ -43,7 +43,7 @@ angular.module('clientSideApp')
 	
 	//=============================Remove==========================
 	 $scope.remove = function(id) {
-      $http.delete('http://localhost:3000/bluebadge/'+id).success(function () {
+      $http.delete('https://galwayparkingapitest.herokuapp.com/bluebadge/'+id).success(function () {
         //refresh();
 		console.log("Deleted");
 		refresh();
@@ -53,7 +53,7 @@ angular.module('clientSideApp')
 	//===========================Edit============================
    $scope.edit = function(id) {
 	console.log(id + "Is id");
-      $http.get('http://localhost:3000/bluebadge/' + id).success(function(response) {
+      $http.get('https://galwayparkingapitest.herokuapp.com/bluebadge/' + id).success(function(response) {
         //var id = $routeParams.id;
        // $scope.contact = $filter('filter')($scope.parking, {_id: id})[0];
 
@@ -65,7 +65,7 @@ angular.module('clientSideApp')
 	//=====================Update==================================
 	$scope.update = function() {
 	console.log("Here");
-	$http.put('http://localhost:3000/bluebadge/'+ $scope.spots._id ,$scope.spots).success(function(response){
+	$http.put('https://galwayparkingapitest.herokuapp.com/bluebadge/'+ $scope.spots._id ,$scope.spots).success(function(response){
     refresh();
 	window.alert("Record Updated");
 	  
