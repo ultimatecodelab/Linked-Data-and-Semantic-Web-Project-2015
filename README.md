@@ -85,9 +85,11 @@ type":"Pay/Surface Carpark","no_spaces":"88","latitude":"53.273","longitude":"-9
 
 * Getting specific record by using the id field
 
- http://127.0.0.1:3000/meters/56428adb58391feaec528388 
- http://127.0.0.1:3000/parking/56428b5c58391feaec5283d8 
- http://127.0.0.1:3000/bluebadge/56428cef58391feaec5283e9
+ https://galwayparkingapitest.herokuapp.com/meters/5651b9d87fa09d17185b1b6f
+ 
+https://galwayparkingapitest.herokuapp.com/parking/5651d41d7fa09d17185b1be8
+
+ https://galwayparkingapitest.herokuapp.com/bluebadge/56510c047fa09d171859f960
 
 
 ## 5: Angularjs Frontend - Consuming api from angularjs (Frontend)
