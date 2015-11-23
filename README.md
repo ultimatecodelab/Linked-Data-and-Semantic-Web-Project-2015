@@ -15,6 +15,9 @@
 8. References 
 
 ## 1: Installation (prerequisites)
+* **Running Server (API)** - go to the **Server** directory which is located the on project root folder. **npm install** and node **server.js**. Make sure you are connected to the internet because database is hosted online and you must have internet connection to pull the data from the cloud.
+* 
+**Running Client**
 * Lunch command prompt and cd into Linked-Data-and-Semantic-Web-Project-2015\clientSide and enter **npm install** to install all the dependencies.
 Once all the dependencies has been installed for the client side, type **grunt serve** and web browser will open where you can perform CRUD operation on the api from front-end (angularjs)
 
