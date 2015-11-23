@@ -3,49 +3,88 @@
 
 ![Alt text](https://github.com/ultimatecodelab/Linked-Data-and-Semantic-Web-Project-2015/blob/master/images/banner.PNG "Optional title")
 
-**API has been hosted on heroku and links are provided bellow.**
+**API has been hosted on heroku. Links are listed under  "How to query the api" section.**
 
 1. Installation (prerequisites)
+    - Setting up API
+    - Setting up the client side webapp for consuming the API
 2. Project description
-3. How to query the api 
-4. Using Postman
-5. Angularjs Frontend
-6. Use of the API
-7. Conclusion
-8. References 
+    - Datasets
+    - Database Technology
+    - Server Side Technologies
+    - Front-End Technologies 
+3. How to query the api
+    - Querying API (REST Verbs)
+    - Using Postman
+4. Angularjs Frontend (Graphical User Interface)
+5. Use of the API
+6. Conclusion
+7. References 
 
 ## 1: Installation (prerequisites)
-* **Running Server (API)** - go to the **Server** directory which is located the on project root folder. **npm install** and node **server.js**. Make sure you are connected to the internet because database is hosted online and you must have internet connection to pull the data from the cloud.
-* 
-**Running Client**
-* Lunch command prompt and cd into Linked-Data-and-Semantic-Web-Project-2015\clientSide and enter **npm install** to install all the dependencies.
-Once all the dependencies has been installed for the client side, type **grunt serve** and web browser will open where you can perform CRUD operation on the api from front-end (angularjs)
+  **Setting up the server-side dependency**
+  
+      1: Download node: https://nodejs.org/en/download/
+      2: CD into "server" folder located on the project root directory. 
+      3: Hold shift and right click and open command prompt.
+      4: npm install to install the serverside dependencies. 
+      5: Type node index.js and hit enter. (you should get message on your console, saying it is running on port 3000 )
+      
+  **Setting up the client side dependencies**
+  
+      1: Download grunt cli : https://www.npmjs.com/package/grunt-cli
+      2: Open command prompt, cd into client folder and type npm install . This will install all the client side  dependencies
+        listed on the package.json fole
+      3: Open command prompt, cd into client folder and type grunt serve. Web browser will open automatically and you will
+        see the front-end(webapp) built using angularjs. You can perform all the HTTP actions/verbs from the GUI.
+        
+  **Internet connection is required because the mongodb database is hosted online.**
 
 ## 2: Project description
-THREE different datasets have been chosen to create an API that allows user to find parking places in Galway city.
+ **Datasets** : THREE different datasets have been chosen to create an API that allows user to find parking places in Galway city
 
-**The  following datasets have/will be used to crean an API:** 
+  * Dataset 1 -Parking  https://data.gov.ie/dataset/galway-city-car-parking-locations
+  * Dataset 2 -Blue Badge https://data.gov.ie/dataset/galway-city-blue-badge-parking-locations
+  * Dataset 3 -Parking-Meters https://data.gov.ie/dataset/galway-city-parking-meter-locations
+  
+**Database Technology**
 
-* Dataset 1 -Parking  https://data.gov.ie/dataset/galway-city-car-parking-locations
-* Dataset 2 -Blue Badge https://data.gov.ie/dataset/galway-city-blue-badge-parking-locations
-* Dataset 3 -Parking-Meters https://data.gov.ie/dataset/galway-city-parking-meter-locations
+   MongoDb : Mongodb is a document based database. The database is hosted on a server online and our application connects 
+    to a remote database. MongoDb is higly scalable.
+    
+**Server Side Technologies**
+  * Server-side is completely isolated from the client side code. An API has been hosted online.
+  * API was developed using the express and restify framework.
+  * Routes / HTTP verbs tested from postman (chrome extension)
 
-MongoDb will be used to store the datasets.
+**Front-End Technologies**
+  * Angularjs - we are consuming the json data returned by our server.
+  * Yoeman - The web's scaffolding tool for modern webapps. See more at : http://yeoman.io/
 
-More datasets will be added if there need be. 
-
-All the above mentioned datasets are available from data.gov.ie
 
 ## 3: How to Query the API from Url's
-* Angularjs will be used for front-end. User will be able to query the API either using the url's,Navigation Links 
-* User will bea able to delete data form the API
-**The project is fully functional, and REST verbs are fully implemented and tested in postman(chrome extension).**
+  **API routes**
+  
+   Navigate to: https://galwayparkingapitest.herokuapp.com/parking (Dataset 1)
+   
+   Navigate to https://galwayparkingapitest.herokuapp.com/meters (Dataset 2)
+   
+   Navigate to https://galwayparkingapitest.herokuapp.com/bluebadge (Dataset 3)
+   
+**Getting specific record by using the id field**
 
-## 4: Using Postman for Get/Post/Put/Delete queries. 
+  https://galwayparkingapitest.herokuapp.com/meters/5651b9d87fa09d17185b1b6f
+ 
+   https://galwayparkingapitest.herokuapp.com/parking/5651d41d7fa09d17185b1be8
+
+  https://galwayparkingapitest.herokuapp.com/bluebadge/56510c047fa09d171859f960
+   
+## 4: Using Postman to interact (Get/Post/Put/Delete) with our API. 
 ![Alt text](https://github.com/ultimatecodelab/Linked-Data-and-Semantic-Web-Project-2015/blob/master/images/postmanget.PNG "Optional title")
 
 
 * Navigate to: https://galwayparkingapitest.herokuapp.com/parking (Dataset 1)
+
 ```javascript
 [{"_id":"56428b5c58391feaec5283d8","parkingid":"1","name":"Market St","
 type":"Pay/Surface Carpark","no_spaces":"88","latitude":"53.273","longitude":"-9.054",
@@ -83,15 +122,6 @@ type":"Pay/Surface Carpark","no_spaces":"88","latitude":"53.273","longitude":"-9
 "eastig":"129298.283","northig":"225557.039"}
 ```
 
-* Getting specific record by using the id field
-
- https://galwayparkingapitest.herokuapp.com/meters/5651b9d87fa09d17185b1b6f
- 
-https://galwayparkingapitest.herokuapp.com/parking/5651d41d7fa09d17185b1be8
-
- https://galwayparkingapitest.herokuapp.com/bluebadge/56510c047fa09d171859f960
-
-
 ## 5: Angularjs Frontend - Consuming api from angularjs (Frontend)
 ![Alt text](https://github.com/ultimatecodelab/Linked-Data-and-Semantic-Web-Project-2015/blob/master/images/mainpagebanner.PNG "Optional title")
 
@@ -115,12 +145,12 @@ Getting json raw data from client side (angularjs)
 User will be able to find / locate the available parking spaces in galway city. 
 
 ## 7: Conclusion
-Developed a fully working API and also  a seperate webapp in angularjs for consuming the API.
-The best part of this project is SERVER side code which is completely isolated from the client side( angularjs) - web app. This 
+Developed a fully working API and also  a seperate webapp in angularjs that consumes the API.
+The SERVER side code is completely isolated from the client side( angularjs) - web app. This 
 means that the API can be hosted in one server and clientside(angularjs) in different server and they can communicate back and forth.
-It also makes it easier for maintaning and future development of an API because changes made to server side code will the break
+This makes it easier for maintanance and future developments of an API because changes made to server side code will the break
 down the client side functionality. 
-This is a REST-full API developed using **Restify** and this technology is widely used in industries. It is very stable was specifically 
+This is a REST-full API developed using **Restify**. This technology is widely used in industries. It is very stable and was specifically 
 built for REST web services. 
 Good programming techniques used, MVC approach was followed. 
 
@@ -135,5 +165,9 @@ http://hello-angularjs.appspot.com/angularjs-restful-apis-get-method-code-exampl
 http://restify.com/#server-api
 
 https://www.mongodb.org/
+
+https://www.youtube.com/watch?v=kHV7gOHvNdk
+
+https://www.youtube.com/watch?v=MMOIr_VwwAk
 
 
